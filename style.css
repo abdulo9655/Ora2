@@ -927,3 +927,54 @@ transform:translateX(-15px);
 
 
 }
+/* ===============================
+   ADMIN INPUT
+================================ */
+
+
+input{
+
+
+width:100%;
+
+
+height:55px;
+
+
+margin-top:25px;
+
+
+border:none;
+
+
+outline:none;
+
+
+border-radius:18px;
+
+
+padding:0 20px;
+
+
+font-size:18px;
+
+
+background:
+
+rgba(255,255,255,.2);
+
+
+color:white;
+
+
+}
+
+
+
+input::placeholder{
+
+
+color:#dbeafe;
+
+
+}
