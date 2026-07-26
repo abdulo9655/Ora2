@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>รอคิว | Queue Hub Pro</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+
+<div class="background"></div>
+
+
+<div class="queue-card waiting-card">
+
+
+<div class="icon">
+
+⏳
+
+</div>
+
+
+<h1>
+
+กำลังรอคิว
+
+</h1>
+
+
+<p>
+
+หมายเลขคิวของคุณ
+
+</p>
+
+
+<div id="myQueue" class="my-ticket">
+
+A001
+
+</div>
+
+
+<div class="status">
+
+🟢 สถานะ : รอเรียกคิว
+
+</div>
+
+
+</div>
+
+
+
+<!-- Popup ตอนถึงคิว -->
+
+<div id="popup" class="popup">
+
+
+<div class="popup-box">
+
+
+<div class="popup-icon">
+
+🎉
+
+</div>
+
+
+<h2>
+
+ถึงคิวของคุณแล้ว
+
+</h2>
+
+
+<p>
+
+กรุณาไปติดต่อที่เคาน์เตอร์
+
+</p>
+
+
+<button onclick="closePopup()">
+
+ตกลง
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
