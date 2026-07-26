@@ -227,3 +227,34 @@ location.reload();
 
 
 }
+// ===============================
+// DISPLAY SCREEN
+// ===============================
+
+
+setInterval(()=>{
+
+
+const screen =
+
+document.getElementById("displayQueue");
+
+
+
+if(screen){
+
+
+let queue =
+
+localStorage.getItem("callingQueue")
+|| "A000";
+
+
+
+screen.innerHTML = queue;
+
+
+}
+
+
+},500);
