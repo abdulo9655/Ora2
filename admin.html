@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin | Queue Hub Pro</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+
+<div class="background"></div>
+
+
+
+<div class="queue-card">
+
+
+<div class="icon">
+
+🔐
+
+</div>
+
+
+<h1>
+
+ADMIN
+
+</h1>
+
+
+<p>
+
+Queue Control Center
+
+</p>
+
+
+
+<div id="loginBox">
+
+
+<input 
+id="adminPass"
+type="password"
+placeholder="ใส่รหัสแอดมิน">
+
+
+<button onclick="adminLogin()">
+
+เข้าสู่ระบบ
+
+</button>
+
+
+</div>
+
+
+
+
+<div id="controlBox" style="display:none;">
+
+
+<h2 style="color:white">
+
+คิวปัจจุบัน
+
+</h2>
+
+
+<div id="currentQueue" class="my-ticket">
+
+-
+
+
+</div>
+
+
+
+<button onclick="nextQueue()">
+
+▶ เรียกคิวถัดไป
+
+</button>
+
+
+
+<button onclick="resetQueue()">
+
+🔄 รีเซ็ตคิว
+
+</button>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
