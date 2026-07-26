@@ -7,11 +7,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>รอคิว | Queue Hub Pro</title>
+<title>Waiting Queue</title>
 
 <link rel="stylesheet" href="style.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 </head>
 
@@ -19,95 +17,134 @@
 <body>
 
 
-<div class="background"></div>
+<div class="bg"></div>
 
 
-<div class="queue-card waiting-card">
+
+<div class="card">
 
 
 <div class="icon">
-
 ⏳
-
 </div>
+
 
 
 <h1>
-
 กำลังรอคิว
-
 </h1>
 
 
+
 <p>
-
 หมายเลขคิวของคุณ
-
 </p>
 
 
-<div id="myQueue" class="my-ticket">
 
-A001
-
-</div>
+<div class="ticket">
 
 
-<div class="status">
-
-🟢 สถานะ : รอเรียกคิว
-
-</div>
-
-
-</div>
-
-
-
-<!-- Popup ตอนถึงคิว -->
-
-<div id="popup" class="popup">
-
-
-<div class="popup-box">
-
-
-<div class="popup-icon">
-
-🎉
-
-</div>
-
-
-<h2>
-
-ถึงคิวของคุณแล้ว
-
+<h2 id="myQueue">
+A000
 </h2>
 
 
-<p>
+<p id="status">
 
-กรุณาไปติดต่อที่เคาน์เตอร์
+กำลังรอเรียก...
 
 </p>
 
 
-<button onclick="closePopup()">
-
-ตกลง
-
-</button>
-
-
 </div>
+
 
 
 </div>
 
 
 
-<script src="script.js"></script>
+
+<script>
+
+
+const API_URL =
+
+"https://script.google.com/macros/s/AKfycbyOf3Ca0vXnSGXZpSv9i26BA_yn_ibAggrp1LYART51w11DEeJE-3veyGlFYyhBysGl0w/exec";
+
+
+
+const myQueue =
+
+localStorage.getItem("myQueue");
+
+
+
+document.getElementById("myQueue")
+.innerHTML = myQueue || "ไม่มีคิว";
+
+
+
+
+
+// ตรวจสอบทุก 3 วินาที
+
+setInterval(async()=>{
+
+
+if(!myQueue) return;
+
+
+
+const url =
+
+API_URL +
+
+"?action=check&queue=" +
+
+myQueue;
+
+
+
+const res =
+
+await fetch(url);
+
+
+
+const data =
+
+await res.json();
+
+
+
+if(data.isCalled){
+
+
+
+document.getElementById("status")
+.innerHTML =
+
+"🎉 ถึงคิวของคุณแล้ว<br>กรุณาไปติดต่อที่เคาน์เตอร์";
+
+
+
+alert(
+"🎉 ถึงคิวของคุณแล้ว\nกรุณาไปติดต่อที่เคาน์เตอร์"
+);
+
+
+
+}
+
+
+
+},3000);
+
+
+
+</script>
 
 
 </body>
