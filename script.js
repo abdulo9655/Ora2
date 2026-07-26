@@ -129,3 +129,101 @@ document.getElementById("popup")
 
 
 }
+// ===============================
+// ADMIN SYSTEM
+// ===============================
+
+
+const ADMIN_PASSWORD = "130956";
+
+
+
+function adminLogin(){
+
+
+const pass =
+document.getElementById("adminPass").value;
+
+
+
+if(pass === ADMIN_PASSWORD){
+
+
+document.getElementById("loginBox")
+.style.display="none";
+
+
+document.getElementById("controlBox")
+.style.display="block";
+
+
+
+}else{
+
+
+alert("❌ รหัสผ่านไม่ถูกต้อง");
+
+
+}
+
+
+}
+
+
+
+
+function nextQueue(){
+
+
+let current =
+
+Number(
+localStorage.getItem("serveQueue") || 0
+);
+
+
+
+current++;
+
+
+localStorage.setItem(
+"serveQueue",
+current
+);
+
+
+
+let queue =
+
+"A" + 
+current.toString().padStart(3,"0");
+
+
+
+document.getElementById("currentQueue")
+.innerHTML = queue;
+
+
+
+localStorage.setItem(
+"callingQueue",
+queue
+);
+
+
+
+}
+
+
+
+
+function resetQueue(){
+
+
+localStorage.clear();
+
+
+location.reload();
+
+
+}
