@@ -1,17 +1,13 @@
 /* =================================
-   QUEUE HUB PRO STYLE
+   Queue Hub Pro Style
 ================================= */
 
 
 *{
 
-margin:0;
-
-padding:0;
-
 box-sizing:border-box;
 
-font-family:'Prompt',sans-serif;
+font-family:"Prompt",sans-serif;
 
 }
 
@@ -19,28 +15,23 @@ font-family:'Prompt',sans-serif;
 
 body{
 
+
+margin:0;
+
+
 min-height:100vh;
+
 
 display:flex;
 
+
 justify-content:center;
+
 
 align-items:center;
 
+
 overflow:hidden;
-
-}
-
-
-
-/* Background */
-
-
-.background{
-
-position:fixed;
-
-inset:0;
 
 
 background:
@@ -51,116 +42,68 @@ linear-gradient(
 
 #020617,
 
-#1e3a8a,
+#1d4ed8,
 
-#2563eb,
-
-#7c3aed
+#38bdf8
 
 );
 
 
-background-size:400% 400%;
+}
+
+
+
+/* พื้นหลัง */
+
+.bg{
+
+
+position:fixed;
+
+
+width:100%;
+
+
+height:100%;
+
+
+background:
+
+radial-gradient(
+
+circle at top,
+
+rgba(255,255,255,.3),
+
+transparent 40%
+
+);
 
 
 animation:
 
-bgMove 15s infinite alternate;
-
-
-z-index:-2;
-
-}
-
-
-
-@keyframes bgMove{
-
-
-0%{
-
-background-position:left top;
-
-}
-
-
-100%{
-
-background-position:right bottom;
-
-}
+move 8s infinite alternate;
 
 
 }
 
 
 
-
-/* Glow Circle */
-
-
-.background::before{
+@keyframes move{
 
 
-content:"";
+from{
 
-
-position:absolute;
-
-
-width:500px;
-
-height:500px;
-
-
-background:
-
-rgba(59,130,246,.35);
-
-
-border-radius:50%;
-
-
-filter:blur(120px);
-
-
-top:-150px;
-
-left:-150px;
-
+transform:scale(1);
 
 }
 
 
+to{
 
-.background::after{
+transform:scale(1.2);
 
-
-content:"";
-
-
-position:absolute;
-
-
-width:450px;
-
-height:450px;
-
-
-background:
-
-rgba(168,85,247,.35);
-
-
-border-radius:50%;
-
-
-filter:blur(120px);
-
-
-bottom:-150px;
-
-right:-150px;
+}
 
 
 }
@@ -168,33 +111,31 @@ right:-150px;
 
 
 
+/* กล่องหลัก */
 
-/* Main Card */
-
-
-.queue-card{
+.card{
 
 
-width:430px;
+position:relative;
 
 
-max-width:90%;
+width:90%;
 
 
-padding:45px;
+max-width:450px;
+
+
+padding:40px;
 
 
 border-radius:35px;
 
 
+
 background:
 
-rgba(255,255,255,.12);
+rgba(255,255,255,.15);
 
-
-border:
-
-1px solid rgba(255,255,255,.25);
 
 
 backdrop-filter:
@@ -203,10 +144,15 @@ blur(25px);
 
 
 
+border:
+
+1px solid rgba(255,255,255,.3);
+
+
+
 box-shadow:
 
-
-0 30px 80px rgba(0,0,0,.45);
+0 30px 80px rgba(0,0,0,.4);
 
 
 
@@ -214,139 +160,30 @@ text-align:center;
 
 
 
-animation:
-
-showCard 1s ease;
+color:white;
 
 
 }
 
-
-
-@keyframes showCard{
-
-
-from{
-
-
-opacity:0;
-
-
-transform:
-
-translateY(50px)
-
-scale(.9);
-
-
-}
-
-
-to{
-
-
-opacity:1;
-
-
-transform:
-
-translateY(0)
-
-scale(1);
-
-
-}
-
-
-}
-
-
-
-
-/* Icon */
 
 
 .icon{
 
 
-width:100px;
-
-height:100px;
-
-
-margin:auto;
-
-
-border-radius:50%;
-
-
-display:flex;
-
-
-align-items:center;
-
-
-justify-content:center;
-
-
-
-font-size:50px;
-
-
-background:
-
-linear-gradient(
-
-135deg,
-
-#38bdf8,
-
-#2563eb
-
-);
-
-
-
-box-shadow:
-
-
-0 0 40px rgba(56,189,248,.8);
-
-
-animation:
-
-float 3s infinite;
+font-size:70px;
 
 
 }
-
-
-
-@keyframes float{
-
-
-50%{
-
-transform:translateY(-12px);
-
-}
-
-
-}
-
 
 
 
 h1{
 
 
-margin-top:25px;
+font-size:35px;
 
 
-font-size:32px;
-
-
-color:white;
+margin:10px;
 
 
 }
@@ -359,10 +196,7 @@ p{
 color:#dbeafe;
 
 
-margin-top:10px;
-
-
-font-size:17px;
+font-size:18px;
 
 
 }
@@ -370,45 +204,17 @@ font-size:17px;
 
 
 
-/* Select */
-
-
-.select-box{
-
-
-margin-top:35px;
-
-
-text-align:left;
-
-
-}
-
-
-
-.select-box label{
-
-
-color:white;
-
-
-display:block;
-
-
-margin-bottom:10px;
-
-
-}
-
-
-
-select{
+select,
+input{
 
 
 width:100%;
 
 
 height:55px;
+
+
+margin-top:15px;
 
 
 border:none;
@@ -426,9 +232,11 @@ padding:0 20px;
 font-size:16px;
 
 
+
 background:
 
-rgba(255,255,255,.18);
+rgba(255,255,255,.2);
+
 
 
 color:white;
@@ -438,25 +246,16 @@ color:white;
 
 
 
-select option{
+option{
 
-
-color:#111;
-
+color:black;
 
 }
 
 
 
 
-
-/* Button */
-
-
 button{
-
-
-margin-top:30px;
 
 
 width:100%;
@@ -465,19 +264,20 @@ width:100%;
 height:60px;
 
 
+margin-top:25px;
+
+
 border:none;
 
 
 border-radius:20px;
 
 
+
 font-size:20px;
 
 
-font-weight:600;
-
-
-color:white;
+font-weight:bold;
 
 
 
@@ -487,26 +287,16 @@ cursor:pointer;
 
 background:
 
-linear-gradient(
-
-135deg,
-
-#2563eb,
-
-#38bdf8
-
-);
+white;
 
 
 
-box-shadow:
-
-
-0 15px 40px rgba(37,99,235,.5);
+color:#2563eb;
 
 
 
 transition:.3s;
+
 
 
 }
@@ -516,26 +306,12 @@ transition:.3s;
 button:hover{
 
 
-transform:
-
-translateY(-5px);
-
+transform:translateY(-5px);
 
 
 box-shadow:
 
-
-0 25px 60px rgba(37,99,235,.8);
-
-
-}
-
-
-
-button:active{
-
-
-transform:scale(.95);
+0 15px 30px rgba(0,0,0,.3);
 
 
 }
@@ -543,34 +319,14 @@ transform:scale(.95);
 
 
 
-/* Result */
 
-
-#queueResult{
-
-
-margin-top:25px;
-
-
-font-size:22px;
-
-
-color:white;
-
-
-font-weight:600;
-
-
-}
-/* ===============================
-   TICKET
-================================ */
+/* บัตรคิว */
 
 
 .ticket{
 
 
-margin-top:20px;
+margin-top:30px;
 
 
 padding:25px;
@@ -579,581 +335,33 @@ padding:25px;
 border-radius:25px;
 
 
-background:
-
-rgba(255,255,255,.18);
-
-
-border:
-
-1px solid rgba(255,255,255,.3);
-
-
-
-animation:
-
-ticketShow .6s;
-
-
-}
-
-
-
-
-.ticket strong{
-
-
-display:block;
-
-
-font-size:45px;
-
-
-color:white;
-
-
-margin:15px 0;
-
-
-text-shadow:
-
-
-0 0 20px #38bdf8;
-
-
-}
-
-
-
-@keyframes ticketShow{
-
-
-from{
-
-
-opacity:0;
-
-
-transform:
-
-scale(.5);
-
-
-}
-
-
-
-to{
-
-
-opacity:1;
-
-
-transform:
-
-scale(1);
-
-
-}
-
-
-}
-/* ===============================
-   WAITING PAGE
-================================ */
-
-
-.my-ticket{
-
-
-margin-top:25px;
-
-
-font-size:70px;
-
-
-font-weight:700;
-
-
-color:white;
-
-
-text-shadow:
-
-
-0 0 30px #38bdf8;
-
-
-animation:
-
-pulseQueue 2s infinite;
-
-
-}
-
-
-
-@keyframes pulseQueue{
-
-
-50%{
-
-transform:scale(1.08);
-
-}
-
-
-}
-
-
-
-.status{
-
-
-margin-top:30px;
-
-
-padding:15px;
-
-
-border-radius:20px;
-
-
-background:
-
-rgba(255,255,255,.15);
-
-
-color:white;
-
-
-}
-
-
-
-/* Popup */
-
-
-.popup{
-
-
-display:none;
-
-
-position:fixed;
-
-
-inset:0;
-
-
-background:
-
-rgba(0,0,0,.55);
-
-
-justify-content:center;
-
-
-align-items:center;
-
-
-z-index:99;
-
-
-}
-
-
-
-.popup-box{
-
-
-width:350px;
-
-
-padding:40px;
-
-
-border-radius:30px;
-
-
-background:white;
-
-
-text-align:center;
-
-
-animation:
-
-popupShow .5s;
-
-
-}
-
-
-
-.popup-icon{
-
-
-font-size:70px;
-
-
-}
-
-
-
-.popup-box h2{
-
-
-color:#2563eb;
-
-
-}
-
-
-
-.popup-box p{
-
-
-color:#333;
-
-
-margin:20px 0;
-
-
-}
-
-
-
-.popup-box button{
-
-
-background:
-
-linear-gradient(
-
-135deg,
-
-#2563eb,
-
-#38bdf8
-
-);
-
-
-}
-
-
-
-@keyframes popupShow{
-
-
-from{
-
-
-transform:
-
-scale(.5);
-
-
-opacity:0;
-
-
-}
-
-
-to{
-
-
-transform:
-
-scale(1);
-
-
-opacity:1;
-
-
-}
-
-
-}
-
-
-
-
-/* Shake */
-
-
-.shake{
-
-
-animation:
-
-shake .5s;
-
-
-}
-
-
-
-@keyframes shake{
-
-
-0%,100%{
-
-transform:translateX(0);
-
-}
-
-
-25%{
-
-transform:translateX(-15px);
-
-}
-
-
-50%{
-
-transform:translateX(15px);
-
-}
-
-
-75%{
-
-transform:translateX(-15px);
-
-}
-
-
-}
-/* ===============================
-   ADMIN INPUT
-================================ */
-
-
-input{
-
-
-width:100%;
-
-
-height:55px;
-
-
-margin-top:25px;
-
-
-border:none;
-
-
-outline:none;
-
-
-border-radius:18px;
-
-
-padding:0 20px;
-
-
-font-size:18px;
-
 
 background:
 
 rgba(255,255,255,.2);
 
 
-color:white;
-
 
 }
 
 
 
-input::placeholder{
+.ticket h2{
 
 
-color:#dbeafe;
+font-size:60px;
 
 
-}
-/* ===============================
-   DISPLAY SCREEN
-================================ */
-
-
-.display-card{
-
-width:90%;
-
-height:85vh;
-
-border-radius:40px;
-
-
-background:
-
-rgba(255,255,255,.12);
-
-
-backdrop-filter:
-
-blur(25px);
-
-
-border:
-
-1px solid rgba(255,255,255,.25);
-
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:center;
-
-align-items:center;
-
-
-text-align:center;
-
-
-box-shadow:
-
-0 30px 90px rgba(0,0,0,.5);
-
-
-}
-
-
-
-.display-logo{
-
-
-position:absolute;
-
-
-top:40px;
-
-
-font-size:30px;
-
-
-font-weight:700;
+margin:15px;
 
 
 color:white;
 
-
-}
-
-
-
-.now{
-
-
-font-size:35px;
-
-
-color:#bfdbfe;
-
-
-}
-
-
-
-.big-queue{
-
-
-font-size:160px;
-
-
-font-weight:700;
-
-
-color:white;
-
-
-margin:30px;
 
 
 text-shadow:
 
-0 0 50px #38bdf8;
-
-
-animation:
-
-numberGlow 2s infinite;
-
-
-}
-
-
-
-@keyframes numberGlow{
-
-
-50%{
-
-
-transform:scale(1.05);
-
-
-}
-
-
-}
-
-
-
-.message{
-
-
-font-size:35px;
-
-
-color:white;
-
-
-}
-
-
-
-.waiting-text{
-
-
-margin-top:40px;
-
-
-font-size:20px;
-
-
-color:#dbeafe;
-
-
-}
-
-
-
-/* Tablet/Mobile */
-
-@media(max-width:700px){
-
-
-.big-queue{
-
-font-size:90px;
-
-}
-
-
-.message{
-
-font-size:22px;
-
-}
+0 0 30px #38bdf8;
 
 
 }
