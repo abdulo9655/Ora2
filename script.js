@@ -79,3 +79,53 @@ function createQueue(){
 
 
 }
+// ===============================
+// WAITING PAGE
+// ===============================
+
+
+window.addEventListener("load",()=>{
+
+
+const queue = 
+localStorage.getItem("myQueue");
+
+
+const box =
+document.getElementById("myQueue");
+
+
+
+if(queue && box){
+
+box.innerHTML = queue;
+
+}
+
+
+});
+
+
+
+function showPopup(){
+
+
+document.body.classList.add("shake");
+
+
+document.getElementById("popup")
+.style.display="flex";
+
+
+}
+
+
+
+function closePopup(){
+
+
+document.getElementById("popup")
+.style.display="none";
+
+
+}
