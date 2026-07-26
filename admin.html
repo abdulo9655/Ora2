@@ -7,11 +7,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Admin | Queue Hub Pro</title>
+<title>Queue Admin</title>
 
 <link rel="stylesheet" href="style.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 </head>
 
@@ -19,45 +17,45 @@
 <body>
 
 
-<div class="background"></div>
+<div class="bg"></div>
 
 
 
-<div class="queue-card">
+<div class="card">
 
 
 <div class="icon">
-
 🔐
-
 </div>
 
 
+
 <h1>
-
 ADMIN
-
 </h1>
 
 
 <p>
-
 Queue Control Center
-
 </p>
 
 
 
-<div id="loginBox">
+<div id="login">
 
 
-<input 
-id="adminPass"
+<input
+
+id="password"
+
 type="password"
-placeholder="ใส่รหัสแอดมิน">
+
+placeholder="รหัสแอดมิน"
+
+>
 
 
-<button onclick="adminLogin()">
+<button onclick="login()">
 
 เข้าสู่ระบบ
 
@@ -69,22 +67,26 @@ placeholder="ใส่รหัสแอดมิน">
 
 
 
-<div id="controlBox" style="display:none;">
+<div id="panel" style="display:none;">
 
 
-<h2 style="color:white">
+<div class="ticket">
 
+
+<p>
 คิวปัจจุบัน
+</p>
+
+
+<h2 id="current">
+
+A000
 
 </h2>
 
 
-<div id="currentQueue" class="my-ticket">
-
--
-
-
 </div>
+
 
 
 
@@ -96,9 +98,9 @@ placeholder="ใส่รหัสแอดมิน">
 
 
 
-<button onclick="resetQueue()">
+<button onclick="refreshQueue()">
 
-🔄 รีเซ็ตคิว
+🔄 ดูคิวปัจจุบัน
 
 </button>
 
@@ -112,7 +114,120 @@ placeholder="ใส่รหัสแอดมิน">
 
 
 
-<script src="script.js"></script>
+<script>
+
+
+const API_URL =
+
+"https://script.google.com/macros/s/AKfycbyOf3Ca0vXnSGXZpSv9i26BA_yn_ibAggrp1LYART51w11DEeJE-3veyGlFYyhBysGl0w/exec";
+
+
+
+
+function login(){
+
+
+const pass =
+
+document.getElementById("password")
+.value;
+
+
+
+if(pass === "130956"){
+
+
+
+document.getElementById("login")
+.style.display="none";
+
+
+document.getElementById("panel")
+.style.display="block";
+
+
+
+refreshQueue();
+
+
+
+}else{
+
+
+alert("❌ รหัสไม่ถูกต้อง");
+
+
+}
+
+
+}
+
+
+
+
+async function nextQueue(){
+
+
+
+const res =
+
+await fetch(
+
+API_URL+
+
+"?action=callNext"
+
+);
+
+
+
+const data =
+
+await res.json();
+
+
+
+document.getElementById("current")
+.innerHTML = data.queue;
+
+
+
+}
+
+
+
+
+async function refreshQueue(){
+
+
+const res =
+
+await fetch(
+
+API_URL+
+
+"?action=current"
+
+);
+
+
+
+const data =
+
+await res.json();
+
+
+
+document.getElementById("current")
+.innerHTML=data.queue;
+
+
+
+}
+
+
+
+</script>
 
 
 </body>
