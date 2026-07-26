@@ -5,13 +5,11 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Queue Hub Pro</title>
 
 <link rel="stylesheet" href="style.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 </head>
 
@@ -19,16 +17,15 @@
 <body>
 
 
-<div class="background"></div>
+<div class="bg"></div>
 
 
-<div class="queue-card">
+
+<div class="card">
 
 
 <div class="icon">
-
 🎫
-
 </div>
 
 
@@ -38,20 +35,12 @@ QUEUE HUB PRO
 
 
 <p>
-ระบบรับบัตรคิวอัจฉริยะ
+ระบบรับบัตรคิวออนไลน์
 </p>
 
 
 
-<div class="select-box">
-
-<label>
-เลือกประเภทบริการ
-</label>
-
-
-<select id="type">
-
+<select id="service">
 
 <option value="A">
 บริการทั่วไป
@@ -71,11 +60,15 @@ QUEUE HUB PRO
 </select>
 
 
-</div>
+
+<input
+id="customer"
+placeholder="ชื่อผู้รับบริการ (ถ้ามี)"
+>
 
 
 
-<button onclick="createQueue()">
+<button onclick="getQueue()">
 
 รับบัตรคิว
 
@@ -83,9 +76,10 @@ QUEUE HUB PRO
 
 
 
-<div id="queueResult">
+<div id="result">
 
 </div>
+
 
 
 </div>
