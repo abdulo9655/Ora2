@@ -1,48 +1,130 @@
-const API =
-"https://script.google.com/macros/s/AKfycbyOf3Ca0vXnSGXZpSv9i26BA_yn_ibAggrp1LYART51w11DEeJE-3veyGlFYyhBysGl0w/exec";async function createQueue(){
+// =================================
+// Queue Hub Pro
+// GitHub Frontend
+// =================================
 
-    const service =
-    document.getElementById("type").value;
 
-    const url =
-    API +
-    "?action=createQueue" +
-    "&service=" + service +
-    "&customer=ลูกค้า";
+// 🟢 Google Apps Script URL
 
-    const res =
-    await fetch(url);
+const API_URL =
+"https://script.google.com/macros/s/AKfycbyOf3Ca0vXnSGXZpSv9i26BA_yn_ibAggrp1LYART51w11DEeJE-3veyGlFYyhBysGl0w/exec";
 
-    const data =
-    await res.json();
 
-    document.getElementById("queueResult").innerHTML=`
 
-        <div class="ticket">
 
-        🎫 บัตรคิวของคุณ
+// =================================
+// ลูกค้ารับคิว
+// =================================
 
-        <br><br>
+async function getQueue(){
 
-        <strong>${data.queue}</strong>
 
-        <br><br>
+const service =
+document.getElementById("service").value;
 
-        กรุณารอเรียกคิว
 
-        </div>
 
-    `;
+const customer =
+document.getElementById("customer").value;
 
-    localStorage.setItem(
-        "myQueue",
-        data.queue
-    );
 
-    setTimeout(()=>{
 
-        location.href="waiting.html";
+const url =
 
-    },2000);
+API_URL +
+
+"?action=createQueue" +
+
+"&service=" +
+encodeURIComponent(service) +
+
+"&customer=" +
+encodeURIComponent(customer);
+
+
+
+try{
+
+
+const response =
+await fetch(url);
+
+
+
+const data =
+await response.json();
+
+
+
+if(data.success){
+
+
+
+document.getElementById("result")
+.innerHTML = `
+
+<div class="ticket">
+
+🎫 คิวของคุณ
+
+<h2>
+
+${data.queue}
+
+</h2>
+
+
+<p>
+
+กรุณารอเรียกคิว
+
+</p>
+
+
+</div>
+
+`;
+
+
+
+localStorage.setItem(
+"myQueue",
+data.queue
+);
+
+
+
+setTimeout(()=>{
+
+
+window.location.href =
+"waiting.html";
+
+
+},2500);
+
+
+
+}else{
+
+
+alert("รับคิวไม่สำเร็จ");
+
+}
+
+
+}catch(error){
+
+
+alert(
+"เชื่อมต่อระบบไม่ได้"
+);
+
+
+console.log(error);
+
+
+}
+
 
 }
